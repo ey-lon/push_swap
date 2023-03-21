@@ -9,3 +9,12 @@ A program named *checker* that takes as an argument a stack formatted as a list 
 | ------- | ---- |
 | `make` | to compile *push_swap* |
 | `make bonus` | to compile *checker* |
+
+```shell
+./push_swap <arg1> <arg2> <...> <argn>
+```
+or
+
+```shell
+ARGS="..."; ./push_swap $ARGS
+```
