@@ -18,3 +18,13 @@ or
 ```shell
 ARGS="..."; ./push_swap $ARGS
 ```
+
+
+```shell
+./checker <arg1> <arg2> <...> <argn>
+```
+or
+
+```shell
+ARGS="..."; ./checker $ARGS
+```
