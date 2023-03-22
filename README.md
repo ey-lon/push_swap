@@ -7,8 +7,8 @@ A program named *checker* that takes as an argument a stack formatted as a list 
 ## Usage
 | command | info |
 | ------- | ---- |
-| `make` | to compile *push_swap* |
-| `make bonus` | to compile *checker* |
+| `make` | compile *push_swap* |
+| `make bonus` | compile *checker* |
 
 ### push_swap
 ```shell
