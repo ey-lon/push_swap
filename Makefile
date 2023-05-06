@@ -12,41 +12,62 @@ CMP = $(GREEN)successfully compiled$(NOCOL)
 
 CC = cc
 
+RM = /bin/rm -f
+
+FLAGS = -Wall -Werror -Wextra -g
+
 NAME = push_swap
 
 N_BNS = checker
 
-LIBFT = Libft/libft.a
+LIBFT = libft.a
 
-SRC =	source/push_swap.c \
-		source/err_check.c \
-		source/print_stack.c \
-		source/fill_stack.c \
-		source/stack_utils.c \
-		source/other_utils.c \
-		source/call_op1.c \
-		source/call_op2.c \
-		source/swap.c \
-		source/push.c \
-		source/rotate.c \
-		source/deal_2to5.c \
-		source/deal_6plus.c \
-		source/execute_mov.c \
-		source/mov.c \
-		source/lis.c \
-		source/lis_utils.c
+#paths-----------------------------------------
 
-BNS = 	source_bonus/checker_bonus.c \
-		source_bonus/err_check_bonus.c \
-		source_bonus/print_stack_bonus.c \
-		source_bonus/fill_stack_bonus.c \
-		source_bonus/stack_utils_bonus.c \
-		source_bonus/other_utils_bonus.c \
-		source_bonus/swap_bonus.c \
-		source_bonus/push_bonus.c \
-		source_bonus/rotate_bonus.c \
+LBT_F = Libft/
+SRC_F = source/
+BNS_F = source_bonus/
 
-FLAGS = -Wall -Werror -Wextra -g
+#files-----------------------------------------
+
+SRC =	push_swap.c \
+		err_check.c \
+		print_stack.c \
+		fill_stack.c \
+		stack_utils.c \
+		other_utils.c \
+		call_op1.c \
+		call_op2.c \
+		swap.c \
+		push.c \
+		rotate.c \
+		deal_2to5.c \
+		deal_6plus.c \
+		execute_mov.c \
+		mov.c \
+		lis.c \
+		lis_utils.c
+
+BNS = 	checker_bonus.c \
+		err_check_bonus.c \
+		print_stack_bonus.c \
+		fill_stack_bonus.c \
+		stack_utils_bonus.c \
+		other_utils_bonus.c \
+		swap_bonus.c \
+		push_bonus.c \
+		rotate_bonus.c \
+
+#----------------------------------------------
+
+LIBFT := $(addprefix $(LBT_F),$(LIBFT))
+SRC := $(addprefix $(SRC_F),$(SRC))
+BNS := $(addprefix $(BNS_F),$(BNS))
+
+OBJ_S = $(SRC:.c=.o)
+OBJ_B = $(BNS:.c=.o)
+
+#rules-----------------------------------------
 
 all: $(NAME)
 
@@ -55,18 +76,20 @@ $(NAME): comp
 libcomp:
 		@make -C Libft
 
-comp: libcomp
-	$(CC) $(FLAGS) $(SRC) $(LIBFT) -o $(NAME)
+comp: libcomp $(OBJ_S)
+	$(CC) $(FLAGS) $(OBJ_S) $(LIBFT) -o $(NAME)
 	echo "$(TCOL)$(NAME) $(CMP)"
 
-bonus: libcomp
-	$(CC) $(FLAGS) $(BNS) $(LIBFT) -o $(N_BNS)
+bonus: libcomp $(OBJ_B)
+	$(CC) $(FLAGS) $(OBJ_B) $(LIBFT) -o $(N_BNS)
 	echo "$(TCOL)$(N_BNS) $(CMP)"
 
 libclean:
 		@make clean -C Libft
 
 clean:		libclean
+	$(RM) $(OBJ_S)
+	$(RM) $(OBJ_B)
 
 libfclean:
 		@make fclean -C Libft
