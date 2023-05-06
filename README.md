@@ -9,6 +9,9 @@ A program named *checker* that takes as an argument a stack formatted as a list 
 | ------- | ---- |
 | `make` | compile *push_swap* |
 | `make bonus` | compile *checker* |
+| `make clean` | remove temporary files |
+| `make fclean` | remove *push_swap* and temporary files |
+| `make re` | execute `make fclean` and recompile *push_swap* |
 
 ### push_swap
 ```shell
