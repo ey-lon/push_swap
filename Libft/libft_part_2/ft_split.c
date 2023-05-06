@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:29:50 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/12 13:53:10 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/12 20:56:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_s_count(char const *s, char c)
 			while (s[i] != c && s[i] != '\0')
 				i++;
 		}
-		if (s[i] == c && s[i] != '\0')
+		else
 			i++;
 	}
 	return (count);

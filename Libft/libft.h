@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:48:23 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/12 12:52:19 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/14 16:13:56 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-//part 1 ---------------------------------------------------------------------
+//part_1 ---------------------------------------------------------------------
 int		ft_isalpha(int arg);
 int		ft_isdigit(int arg);
 int		ft_isalnum(int arg);
@@ -48,7 +48,7 @@ int		ft_memcmp(const void *str1, const void *str2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
-//part 2 --------------------------------------------------------------------
+//part_2 --------------------------------------------------------------------
 char	*ft_strdup(const char *src);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -61,7 +61,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-//bonus ---------------------------------------------------------------------
+//lists ---------------------------------------------------------------------
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -75,5 +75,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_printf(const char *str, ...);
 //get_next_line -------------------------------------------------------------
 char	*get_next_line(int fd);
+//other ---------------------------------------------------------------------
+char	*ft_ult_strjoin(int n, ...);
+char	*ft_rev_split(char **mat);
 
 #endif

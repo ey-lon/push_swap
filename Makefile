@@ -94,7 +94,7 @@ clean:		libclean
 libfclean:
 		@make fclean -C Libft
 
-fclean:   	libfclean
+fclean:   	clean libfclean
 		if [ -f $(NAME) ]; then\
 			rm -rf $(NAME);\
 			echo "$(TCOL)$(NAME) $(RMD)";\

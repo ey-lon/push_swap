@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 14:33:46 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/11 16:31:41 by marvin           ###   ########.fr       */
+/*   Updated: 2023/04/14 15:58:46 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int	main()
 */
 
 /*
-
 int	ft_atoi_base(const char *str, int base)
 {
 	int	i;
@@ -57,7 +56,6 @@ int	ft_atoi_base(const char *str, int base)
 	char temp;
 
 	res = 0;
-	sign = 1;
 	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
@@ -71,13 +69,12 @@ int	ft_atoi_base(const char *str, int base)
 			temp = str[i] - 'a' + 10;
 		else
 			temp = str[i];
-		if (str[i] < base)
+		if (temp < base)
 			res = res * 10 + str[i];
 		else
 			break;
 		i++;
 	}
-	return (res * sign);
+	return (res);
 }
-
 */
