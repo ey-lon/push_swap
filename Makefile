@@ -69,7 +69,7 @@ OBJ_B = $(BNS:.c=.o)
 
 #rules-----------------------------------------
 
-all: $(NAME)
+all: $(NAME) bonus
 
 $(NAME): comp
 
