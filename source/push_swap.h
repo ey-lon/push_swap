@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:12:56 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/08 14:12:46 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:43:44 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 
 # ifndef PRINT_PERM
 #  define PRINT_PERM 1
+# endif
+
+# ifndef SPACES
+#  define SPACES "\t\n\v\f\r "
 # endif
 
 typedef struct s_stack

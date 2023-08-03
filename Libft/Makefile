@@ -6,7 +6,7 @@
 #    By: abettini <abettini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 14:36:43 by abettini          #+#    #+#              #
-#    Updated: 2023/05/06 10:27:45 by abettini         ###   ########.fr        #
+#    Updated: 2023/08/03 10:42:13 by abettini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,6 +73,7 @@ PT2 :=	ft_itoa.c \
 	ft_putnbr_fd.c \
 	ft_putstr_fd.c \
 	ft_split.c \
+	ft_split_2.c \
 	ft_striteri.c \
 	ft_strjoin.c \
 	ft_strmapi.c \

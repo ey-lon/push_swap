@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:40:27 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/09 12:53:37 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/03 10:44:18 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		av = ft_split(av[1], ' ');
+		av = ft_split_2(av[1], SPACES);
 		if (*av)
 			ft_push_swap(av);
 		ft_free_mat(av);
