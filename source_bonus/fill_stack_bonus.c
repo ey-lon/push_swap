@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:25:11 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/09 10:30:36 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:26:52 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_stack	*ft_fill_stack(char **mat)
 	int		j;
 	int		size;
 
-	size = ft_count_str(mat);
+	size = ft_mat_size(mat);
 	stack = ft_new_node(NULL, ft_atoi(mat[0]));
 	temp = stack;
 	j = 1;

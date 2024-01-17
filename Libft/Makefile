@@ -6,7 +6,7 @@
 #    By: abettini <abettini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 14:36:43 by abettini          #+#    #+#              #
-#    Updated: 2023/08/03 10:42:13 by abettini         ###   ########.fr        #
+#    Updated: 2024/01/17 11:36:05 by abettini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,6 @@ CYAN = \e[1;36m
 BLUE = \e[1;34m
 YELL = \e[0;33m
 TCOL = $(CYAN)
-RMD = $(GREEN)successfully $(RED)removed$(NOCOL)
-CMP = $(GREEN)successfully compiled$(NOCOL)
-ALC = $(YELL)already compiled$(NOCOL)
 
 #----------------------------------------------
 
@@ -134,30 +131,21 @@ OBJ_S = $(PT1:.c=.o) \
 all: $(NAME)
 
 $(NAME): $(OBJ_S)
-	if [ -f $(NAME) ]; then\
-		echo "$(TCOL)$(NAME) $(ALC)";\
-	else\
-		ar -rcs $@ $^;\
-		echo "$(TCOL)$(NAME) $(CMP)";\
-	fi
-
+	ar -rcs $@ $^
+	echo "$(TCOL)make ($(NAME))$(NOCOL)"
 
 clean:
-	if [ `find . -name "*.o" | wc -l` != 0 ]; then\
-		$(RM) $(OBJ_S);\
-		echo "$(TCOL)object files ($(NAME)) $(RMD)";\
-	fi
+	$(RM) $(OBJ_S)
+	echo "$(TCOL)make clean ($(NAME))$(NOCOL)"
 
 fclean: clean
-	if [ -f $(NAME) ]; then\
-		$(RM) $(NAME);\
-		echo "$(TCOL)$(NAME) $(RMD)";\
-	fi
+	$(RM) $(NAME)
+	echo "$(TCOL)make fclean ($(NAME))$(NOCOL)"
 
 re: fclean all
 
 #---------------------------------------------
 
-.PHONY: $(NAME) all clean fclean re
+.PHONY: all clean fclean re
 
 .SILENT:

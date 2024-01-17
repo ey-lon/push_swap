@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:12:56 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/03 10:43:44 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/16 16:26:52 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_rev_print_stack(t_stack *stack);
 void	ft_put_node_top(t_stack **stack, t_stack *node, char s_name);
 void	ft_free_stack(t_stack *stack);
 void	ft_free_mat(char **mat);
-int		ft_count_str(char **mat);
+int		ft_mat_size(char **mat);
 //call operations
 void	ft_call_swap(t_stack **stack, char s_name);
 void	ft_call_push(t_stack **dest, t_stack **src, char dest_name);

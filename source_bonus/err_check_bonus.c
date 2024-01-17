@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:19:31 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/09 10:30:57 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:41:31 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	ft_int_limit_check(char *str)
 	long long	res;
 	int			sign;
 	int			i;
-	int			dig_n;	
 
-	dig_n = 0;
 	res = 0;
 	sign = 1;
 	i = 0;
@@ -29,61 +27,62 @@ int	ft_int_limit_check(char *str)
 		sign = -1;
 	if (str[i] == '-' || str[i] == '+')
 		i++;
-	while (str[i] >= '0' && str[i] <= '9' && dig_n <= 11)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + str[i] - '0';
 		i++;
-		dig_n++;
 	}
-	if (dig_n > 10 || res * sign > INT_MAX || res * sign < INT_MIN)
-		return (1);
-	return (0);
+	return (!(res * sign >= INT_MIN && res * sign <= INT_MAX));
 }
 
 int	ft_int_type_check(char *str)
 {
 	int	i;
-	int	check;
 
-	check = 0;
-	if (((str[0] == '-' || str[0] == '+')
-			&& ft_strlen(str) > 1) || ft_isdigit(str[0]))
+	i = 0;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
 	{
-		i = 1;
-		while (str[i] && check == 0)
-		{
-			if (!ft_isdigit(str[i]))
-				check = 1;
-			i++;
-		}
+		if (!ft_isdigit(str[i]))
+			return (1);
+		i++;
 	}
-	else
-		check = 1;
-	return (check);
+	return (0);
+}
+
+int	ft_double_check(int n, char **mat)
+{
+	int	i;
+
+	i = 0;
+	while (mat[i])
+	{
+		if (ft_atoi(mat[i]) == n)
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
 }
 
 int	ft_error_deal(char **mat)
 {
-	int	check;
-	int	size;
-	int	j;
-	int	k;
+	int	i;
 
-	size = ft_count_str(mat);
-	check = 0;
-	j = 0;
-	while (j < size && !check)
+	i = 0;
+	while (mat[i])
 	{
-		k = j + 1;
-		while (k < size && !check)
-		{
-			if (ft_atoi(mat[j]) == ft_atoi(mat[k]))
-				check++;
-			k++;
-		}
-		check += ft_int_type_check(mat[j]);
-		check += ft_int_limit_check(mat[j]);
-		j++;
+		if (ft_int_type_check(mat[i]))
+			return (1);
+		if (ft_int_limit_check(mat[i]))
+			return (1);
+		if (ft_double_check(ft_atoi(mat[i]), &(mat[i + 1])))
+			return (1);
+		i++;
 	}
-	return (check);
+	return (0);
 }

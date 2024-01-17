@@ -71,41 +71,35 @@ OBJ_B = $(BNS:.c=.o)
 
 all: $(NAME) bonus
 
-$(NAME): comp
-
 libcomp:
-		@make -C Libft
+	@make -C Libft
 
-comp: libcomp $(OBJ_S)
+libclean:
+	@make clean -C Libft
+
+libfclean:
+	@make fclean -C Libft
+
+$(NAME): libcomp $(OBJ_S)
 	$(CC) $(FLAGS) $(OBJ_S) $(LIBFT) -o $(NAME)
-	echo "$(TCOL)$(NAME) $(CMP)"
+	echo "$(TCOL)make ($(NAME))$(NOCOL)"
 
 bonus: libcomp $(OBJ_B)
 	$(CC) $(FLAGS) $(OBJ_B) $(LIBFT) -o $(N_BNS)
-	echo "$(TCOL)$(N_BNS) $(CMP)"
-
-libclean:
-		@make clean -C Libft
+	echo "$(TCOL)make bonus ($(NAME))$(NOCOL)"
 
 clean:		libclean
 	$(RM) $(OBJ_S)
 	$(RM) $(OBJ_B)
-
-libfclean:
-		@make fclean -C Libft
+	echo "$(TCOL)make clean ($(NAME))$(NOCOL)"
 
 fclean:   	libfclean clean
-		if [ -f $(NAME) ]; then\
-			rm -rf $(NAME);\
-			echo "$(TCOL)$(NAME) $(RMD)";\
-		fi
-		if [ -f $(N_BNS) ]; then\
-			rm -rf $(N_BNS);\
-			echo "$(TCOL)$(N_BNS) $(RMD)";\
-		fi
+	rm -rf $(NAME)
+	rm -rf $(N_BNS)
+	echo "$(TCOL)make fclean ($(NAME))$(NOCOL)"
 
 re: fclean all
 
-.PHONY: all re clean fclean bonus
+.PHONY: all re clean fclean bonus libclean libfclean
 
 .SILENT:

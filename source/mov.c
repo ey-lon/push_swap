@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 12:00:35 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/07 12:33:17 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:19:48 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	*ft_mov_b(int size)
 	int	*mov_b;
 
 	mov_b = malloc(sizeof(int) * size);
+	if (!mov_b)
+		return (NULL);
 	if (size > 0)
 	{
 		i = 0;
@@ -70,6 +72,8 @@ int	*ft_mov_a(t_stack *s1, t_stack *s2, int size)
 	int	i;
 
 	mov_a = malloc(sizeof(int) * size);
+	if (!mov_a)
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{

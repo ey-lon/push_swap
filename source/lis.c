@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:52:42 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/09 12:26:53 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:17:46 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	*ft_real_lis_pos(int *lis_pos, int i, int size)
 	int	j;
 
 	real_lis_pos = malloc(sizeof(int) * size);
+	if (!real_lis_pos)
+		return (NULL);
 	temp = i;
 	j = 0;
 	while (j < size)

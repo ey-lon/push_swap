@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:40:27 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/03 10:44:18 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:21:52 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,18 @@ int	main(int ac, char **av)
 	if (ac == 2)
 	{
 		av = ft_split_2(av[1], SPACES);
-		if (*av)
-			ft_push_swap(av);
-		ft_free_mat(av);
+		if (av)
+		{
+			if (*av)
+			{
+				ft_push_swap(av);
+			}
+			ft_free_mat(av);
+		}
 	}
 	else if (ac > 2)
+	{
 		ft_push_swap(av + 1);
+	}
 	return (0);
 }

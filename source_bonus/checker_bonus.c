@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:44:13 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/09 12:52:58 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:31:05 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,20 +66,20 @@ int	ft_op1(char *comm, t_stack **a, t_stack **b)
 int	ft_exec(t_stack **a, t_stack **b)
 {
 	int		check;
-	char	*comm;
+	char	*command;
 
 	check = 1;
 	while (check > 0)
 	{
-		comm = get_next_line(STDIN_FILENO);
-		if (comm)
+		command = get_next_line(STDIN_FILENO);
+		if (command)
 		{
-			if (ft_op1(comm, a, b))
+			if (ft_op1(command, a, b))
 			{
 				ft_putstr_fd("Error\n", STDERR_FILENO);
 				check = -1;
 			}
-			free(comm);
+			free(command);
 		}
 		else
 			check = 0;
@@ -116,12 +116,19 @@ int	main(int ac, char **av)
 {
 	if (ac == 2)
 	{
-		av = ft_split(av[1], ' ');
-		if (*av)
-			ft_checker(av);
-		ft_free_mat(av);
+		av = ft_split_2(av[1], SPACES);
+		if (av)
+		{
+			if (*av)
+			{
+				ft_checker(av);
+			}
+			ft_free_mat(av);
+		}
 	}
 	else if (ac > 2)
+	{
 		ft_checker(av + 1);
+	}
 	return (0);
 }

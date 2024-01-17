@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:14:06 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/08 10:06:31 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/17 11:12:38 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 void	ft_deal_2(t_stack **stack, char s_name)
 {
 	if ((*stack)->n > (*stack)->next->n)
+	{
 		ft_call_rotate(stack, s_name);
+	}
 }
 
 void	ft_deal_3(t_stack **stack, char s_name)
