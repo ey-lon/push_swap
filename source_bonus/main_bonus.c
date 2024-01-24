@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:44:13 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/17 11:31:05 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:52:58 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-int	ft_op2(char *comm, t_stack **a, t_stack **b)
+static int	ft_op2(char *comm, t_stack **a, t_stack **b)
 {
 	int	err;
 
@@ -40,7 +40,7 @@ int	ft_op2(char *comm, t_stack **a, t_stack **b)
 	return (err);
 }
 
-int	ft_op1(char *comm, t_stack **a, t_stack **b)
+static int	ft_op1(char *comm, t_stack **a, t_stack **b)
 {
 	int	err;
 
@@ -92,7 +92,7 @@ void	ft_checker(char **mat)
 	t_stack	*a;
 	t_stack	*b;
 
-	if (ft_error_deal(mat))
+	if (ft_error_check(mat))
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 	else
 	{

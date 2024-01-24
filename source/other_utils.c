@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 12:35:28 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/17 11:12:20 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:35:55 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ void	ft_put_node_top(t_stack **stack, t_stack *node, char s_name)
 {
 	if (node && *stack)
 	{
-		if (ft_pos_with_n(*stack, node->n) \
+		if (ft_get_pos_by_n(*stack, node->n) \
 			> ft_stack_size(*stack) / 2 + 1)
 		{
-			while (ft_pos_with_n(*stack, node->n) != 1)
+			while (ft_get_pos_by_n(*stack, node->n) != 1)
 			{
 				ft_call_rev_rotate(stack, s_name);
 			}
 		}
 		else
 		{
-			while (ft_pos_with_n(*stack, node->n) != 1)
+			while (ft_get_pos_by_n(*stack, node->n) != 1)
 			{
 				ft_call_rotate(stack, s_name);
 			}

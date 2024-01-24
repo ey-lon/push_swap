@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:07:29 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/09 10:31:00 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:53:31 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_stack_size(t_stack *stack)
 	return (size);
 }
 
-int	ft_order_check(t_stack *stack)
+bool	ft_order_check(t_stack *stack)
 {
 	int		size;
 
@@ -47,5 +47,5 @@ int	ft_order_check(t_stack *stack)
 		}
 		return (1);
 	}
-	return (-1);
+	return (0);
 }

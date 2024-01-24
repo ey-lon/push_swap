@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 14:33:56 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/17 11:15:34 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:42:21 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_minmax(int a, int b)
+static int	ft_minmax(int a, int b)
 {
 	int	max;
 
@@ -33,7 +33,7 @@ int	ft_minmax(int a, int b)
 	return (max);
 }
 
-int	ft_find_move_value(int a, int b)
+static int	ft_find_move_value(int a, int b)
 {
 	int	moves;
 
@@ -49,7 +49,7 @@ int	ft_find_move_value(int a, int b)
 	return (moves);
 }
 
-int	ft_best_move(int size, int *mov_a, int *mov_b)
+static int	ft_best_move(int size, int *mov_a, int *mov_b)
 {
 	int	move;
 	int	move_i;
@@ -70,7 +70,7 @@ int	ft_best_move(int size, int *mov_a, int *mov_b)
 	return (move_i);
 }
 
-void	ft_mov(t_stack **s1, t_stack **s2)
+static void	ft_mov(t_stack **s1, t_stack **s2)
 {
 	int	*mov_a;
 	int	*mov_b;

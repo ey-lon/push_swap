@@ -6,13 +6,15 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 15:12:56 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/17 11:24:08 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:51:54 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
+
 # include "../Libft/libft.h"
+# include <stdbool.h>
 
 # ifndef SPACES
 #  define SPACES "\t\n\v\f\r "
@@ -27,11 +29,11 @@ typedef struct s_stack
 
 //fill_stack
 t_stack	*ft_fill_stack(char **mat);
-//error_deal
-int		ft_error_deal(char **mat);
+//error_check
+bool	ft_error_check(char **mat);
 //utils
 int		ft_stack_size(t_stack *stack);
-int		ft_order_check(t_stack *stack);
+bool	ft_order_check(t_stack *stack);
 //print
 void	ft_print_stack(t_stack *stack);
 void	ft_rev_print_stack(t_stack *stack);

@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:19:31 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/17 11:41:23 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:56:02 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_int_limit_check(char *str)
+static bool	ft_int_limit_check(char *str)
 {
 	long long	res;
 	int			sign;
@@ -35,7 +35,7 @@ int	ft_int_limit_check(char *str)
 	return (!(res * sign >= INT_MIN && res * sign <= INT_MAX));
 }
 
-int	ft_int_type_check(char *str)
+static bool	ft_int_type_check(char *str)
 {
 	int	i;
 
@@ -53,7 +53,7 @@ int	ft_int_type_check(char *str)
 	return (0);
 }
 
-int	ft_double_check(int n, char **mat)
+static bool	ft_double_check(int n, char **mat)
 {
 	int	i;
 
@@ -69,7 +69,7 @@ int	ft_double_check(int n, char **mat)
 	return (0);
 }
 
-int	ft_error_deal(char **mat)
+bool	ft_error_check(char **mat)
 {
 	int	i;
 

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 11:40:27 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/17 11:21:52 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:49:15 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_swap(char **mat)
+static void	ft_push_swap(char **mat)
 {
 	t_stack	*a;
 	t_stack	*b;
 
-	if (ft_error_deal(mat))
+	if (ft_error_check(mat))
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 	else
 	{

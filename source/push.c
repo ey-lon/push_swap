@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abettini <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:31:33 by abettini          #+#    #+#             */
-/*   Updated: 2023/02/13 16:31:35 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:53:15 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_self_link(t_stack **stack)
+static void	ft_self_link(t_stack **stack)
 {
 	(*stack)->next = *stack;
 	(*stack)->prev = *stack;

@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:52:42 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/17 11:17:46 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:40:49 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_not_lis(t_stack **s1, t_stack **s2, int *lis, int lis_size)
+static void	ft_push_not_lis(t_stack **s1, t_stack **s2, int *lis, int lis_size)
 {
 	int		s1_size;
 	t_stack	*temp;
@@ -29,20 +29,20 @@ void	ft_push_not_lis(t_stack **s1, t_stack **s2, int *lis, int lis_size)
 	}
 }
 
-int	*ft_lis_n(t_stack *s, int *lis_pos, int size)
+static int	*ft_lis_n(t_stack *s, int *lis_pos, int size)
 {
 	int	i;
 
 	i = 0;
 	while (i < size)
 	{
-		lis_pos[i] = ft_n_at_pos(s, lis_pos[i] + 1);
+		lis_pos[i] = ft_get_n_by_pos(s, lis_pos[i] + 1);
 		i++;
 	}
 	return (lis_pos);
 }
 
-int	*ft_real_lis_pos(int *lis_pos, int i, int size)
+static int	*ft_real_lis_pos(int *lis_pos, int i, int size)
 {
 	int	temp;
 	int	*real_lis_pos;
@@ -63,7 +63,7 @@ int	*ft_real_lis_pos(int *lis_pos, int i, int size)
 	return (real_lis_pos);
 }
 
-void	ft_do_lis(t_stack *stack, int **lis_len, int **lis_pos)
+static void	ft_do_lis(t_stack *stack, int **lis_len, int **lis_pos)
 {
 	int	i;
 	int	j;
@@ -79,7 +79,7 @@ void	ft_do_lis(t_stack *stack, int **lis_len, int **lis_pos)
 		j = 0;
 		while (j < i)
 		{
-			if (ft_n_at_pos(stack, i + 1) > ft_n_at_pos(stack, j + 1) \
+			if (ft_get_n_by_pos(stack, i + 1) > ft_get_n_by_pos(stack, j + 1) \
 				&& (*lis_len)[i] <= (*lis_len)[j] + 1)
 			{
 				(*lis_len)[i] = (*lis_len)[j] + 1;
@@ -101,6 +101,8 @@ void	ft_lis(t_stack **s1, t_stack **s2)
 	size = ft_stack_size(*s1);
 	lis_len = malloc(sizeof(int) * size);
 	lis_pos = malloc(sizeof(int) * size);
+	if (!lis_len || !lis_pos)
+		return ;
 	ft_do_lis(*s1, &lis_len, &lis_pos);
 	max_i = ft_find_max_i(lis_len, size);
 	lis_pos = ft_real_lis_pos(lis_pos, max_i, lis_len[max_i]);

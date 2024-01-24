@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 12:00:35 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/17 11:19:48 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:43:51 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	*ft_mov_b(int size)
 	return (mov_b);
 }
 
-int	ft_fill_mov_a(t_stack *s1, int s2_n)
+static int	ft_fill_mov_a(t_stack *s1, int s2_n)
 {
 	t_stack	*temp;
 	int		size;
@@ -46,20 +46,20 @@ int	ft_fill_mov_a(t_stack *s1, int s2_n)
 	int		i;
 
 	size = ft_stack_size(s1);
-	if (ft_pos_with_n(s1, ft_find_smallest(s1)->n) > size / 2 + 1)
-		value = ft_pos_with_n(s1, ft_find_smallest(s1)->n) - 1 - size;
+	if (ft_get_pos_by_n(s1, ft_find_smallest(s1)->n) > size / 2 + 1)
+		value = ft_get_pos_by_n(s1, ft_find_smallest(s1)->n) - 1 - size;
 	else
-		value = ft_pos_with_n(s1, ft_find_smallest(s1)->n) - 1;
+		value = ft_get_pos_by_n(s1, ft_find_smallest(s1)->n) - 1;
 	temp = s1;
 	i = 0;
 	while (i++ < size)
 	{
 		if (s2_n > temp->prev->n && s2_n < temp->n)
 		{
-			if (ft_pos_with_n(s1, temp->n) > size / 2 + 1)
-				value = ft_pos_with_n(s1, temp->n) - 1 - size;
+			if (ft_get_pos_by_n(s1, temp->n) > size / 2 + 1)
+				value = ft_get_pos_by_n(s1, temp->n) - 1 - size;
 			else
-				value = ft_pos_with_n(s1, temp->n) - 1;
+				value = ft_get_pos_by_n(s1, temp->n) - 1;
 		}
 		temp = temp->next;
 	}

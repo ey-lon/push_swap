@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 11:48:23 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/07 12:10:54 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:43:03 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_mov_rr(t_stack **s1, t_stack **s2, int mov_a, int mov_b)
+static void	ft_mov_rr(t_stack **s1, t_stack **s2, int mov_a, int mov_b)
 {
 	while (mov_a > 0 && mov_b > 0)
 	{
@@ -26,7 +26,7 @@ void	ft_mov_rr(t_stack **s1, t_stack **s2, int mov_a, int mov_b)
 		ft_call_rotate(s2, 'b');
 }
 
-void	ft_mov_rrr(t_stack **s1, t_stack **s2, int mov_a, int mov_b)
+static void	ft_mov_rrr(t_stack **s1, t_stack **s2, int mov_a, int mov_b)
 {
 	while (mov_a < 0 && mov_b < 0)
 	{

@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 10:07:29 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/09 11:57:58 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:47:24 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_n_at_pos(t_stack *stack, int pos)
+int	ft_get_n_by_pos(t_stack *stack, int pos)
 {
 	while (--pos > 0 && stack)
 		stack = stack->next;
@@ -21,7 +21,7 @@ int	ft_n_at_pos(t_stack *stack, int pos)
 	return (0);
 }
 
-int	ft_pos_with_n(t_stack *stack, int n)
+int	ft_get_pos_by_n(t_stack *stack, int n)
 {
 	int	pos;
 	int	size;
@@ -61,13 +61,13 @@ int	ft_stack_size(t_stack *stack)
 	return (size);
 }
 
-int	ft_order_check(t_stack *stack)
+bool	ft_order_check(t_stack *stack)
 {
 	int		size;
 
-	size = ft_stack_size(stack);
 	if (stack)
 	{
+		size = ft_stack_size(stack);
 		while (size > 1)
 		{
 			if (stack->n > stack->next->n)
@@ -77,7 +77,7 @@ int	ft_order_check(t_stack *stack)
 		}
 		return (1);
 	}
-	return (-1);
+	return (0);
 }
 
 t_stack	*ft_find_smallest(t_stack *stack)

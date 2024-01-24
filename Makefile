@@ -30,9 +30,8 @@ BNS_F = source_bonus/
 
 #files-----------------------------------------
 
-SRC =	push_swap.c \
+SRC =	main.c \
 		err_check.c \
-		print_stack.c \
 		fill_stack.c \
 		stack_utils.c \
 		other_utils.c \
@@ -48,9 +47,8 @@ SRC =	push_swap.c \
 		lis.c \
 		lis_utils.c
 
-BNS = 	checker_bonus.c \
+BNS = 	main_bonus.c \
 		err_check_bonus.c \
-		print_stack_bonus.c \
 		fill_stack_bonus.c \
 		stack_utils_bonus.c \
 		other_utils_bonus.c \

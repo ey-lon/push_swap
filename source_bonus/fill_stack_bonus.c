@@ -6,17 +6,19 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:25:11 by abettini          #+#    #+#             */
-/*   Updated: 2024/01/16 16:26:52 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:57:41 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-t_stack	*ft_new_node(t_stack *prev, int n)
+static t_stack	*ft_new_node(t_stack *prev, int n)
 {
 	t_stack	*node;
 
 	node = malloc(sizeof(*node));
+	if (!node)
+		return (NULL);
 	node->n = n;
 	node->prev = prev;
 	node->next = NULL;

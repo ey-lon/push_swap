@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 16:31:33 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/09 10:30:19 by abettini         ###   ########.fr       */
+/*   Updated: 2024/01/24 10:53:09 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-void	ft_self_link(t_stack **stack)
+static void	ft_self_link(t_stack **stack)
 {
 	(*stack)->next = *stack;
 	(*stack)->prev = *stack;
